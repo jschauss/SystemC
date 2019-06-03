@@ -1,0 +1,3 @@
+/usr/systemc_projects/motor/build/CMakeFiles/rebuild_cache.dir
+/usr/systemc_projects/motor/build/CMakeFiles/motor.dir
+/usr/systemc_projects/motor/build/CMakeFiles/edit_cache.dir
