@@ -1,0 +1,33 @@
+# Set the minimum version of CMake that can be used
+# To find the cmake version run
+# $ cmake --version
+cmake_minimum_required(VERSION 3.5)
+
+# Set the project name
+project (counter)
+
+# Create a sources variable with a link to all cpp files to compile
+set(SOURCES
+    src/main.cpp
+    src/counter.cpp
+    src/testbench.cpp
+)
+
+set (CMAKE_PREFIX_PATH /usr/local/systemc-2.3.2)
+
+include_directories(${CMAKE_PREFIX_PATH}/include)
+
+find_library(systemc systemc ${CMAKE_PREFIX_PATH}/lib-linux64)
+link_directories(${CMAKE_PREFIX_PATH}/lib-linux64)
+
+# Add an executable with the above sources
+add_executable(counter ${SOURCES})
+
+# Set the directories that should be included in the build command for this target
+# when running g++ these will be included as -I/directory/path/
+target_include_directories(counter
+    PRIVATE 
+        ${PROJECT_SOURCE_DIR}/include
+)
+
+target_link_libraries(counter systemc)
