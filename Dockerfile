@@ -9,7 +9,7 @@ RUN apt-get -qq install build-essential wget && cd ~ && \
 	mkdir /usr/local/systemc-2.3.2 && ../configure --prefix=/usr/local/systemc-2.3.2/ && \
 	make && make install
 	
-COPY ./systemc_ams/systemc-ams-2.1.tar.gz . 
+COPY .systemc-ams-2.1.tar.gz . 
 
 RUN tar -xzf systemc-ams-2.1.tar.gz && cd systemc-ams-2.1 && \
 	mkdir objdir && cd objdir && mkdir /usr/local/systemc-ams-2.1 && \
