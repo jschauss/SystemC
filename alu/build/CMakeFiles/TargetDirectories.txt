@@ -1,3 +1,0 @@
-/usr/src/systemc_projects/alu/build/CMakeFiles/rebuild_cache.dir
-/usr/src/systemc_projects/alu/build/CMakeFiles/alu.dir
-/usr/src/systemc_projects/alu/build/CMakeFiles/edit_cache.dir
