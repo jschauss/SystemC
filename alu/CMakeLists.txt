@@ -6,19 +6,18 @@ cmake_minimum_required(VERSION 3.5)
 # Set the project name
 project (alu)
 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake-files)
+
+find_package(SystemC REQUIRED)
+
+include_directories(${SYSTEMC_INCLUDE_DIRS}) 
+
 # Create a sources variable with a link to all cpp files to compile
 set(SOURCES
     src/main.cpp
     src/alu.cpp
     src/testbench.cpp
 )
-
-set (CMAKE_PREFIX_PATH /usr/local/systemc-2.3.2)
-
-include_directories(${CMAKE_PREFIX_PATH}/include)
-
-find_library(systemc systemc ${CMAKE_PREFIX_PATH}/lib-linux64)
-link_directories(${CMAKE_PREFIX_PATH}/lib-linux64)
 
 # Add an executable with the above sources
 add_executable(alu ${SOURCES})
@@ -30,4 +29,6 @@ target_include_directories(alu
         ${PROJECT_SOURCE_DIR}/include
 )
 
-target_link_libraries(alu systemc)
+target_link_libraries(alu 
+	${SYSTEMC_LIBRARIES}
+)

@@ -6,6 +6,12 @@ cmake_minimum_required(VERSION 3.5)
 # Set the project name
 project (fifo)
 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake-files)
+
+find_package(SystemC REQUIRED)
+
+include_directories(${SYSTEMC_INCLUDE_DIRS}) 
+
 # Create a sources variable with a link to all cpp files to compile
 set(SOURCES
     src/main.cpp
@@ -29,4 +35,6 @@ target_include_directories(fifo
         ${PROJECT_SOURCE_DIR}/include
 )
 
-target_link_libraries(fifo systemc)
+target_link_libraries(fifo
+	${SYSTEMC_LIBRARIES}
+)
