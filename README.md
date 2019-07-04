@@ -63,4 +63,4 @@ Download SystemC AMS 2.1 at http://www.coseda-tech.com/systemc-ams-proof-of-conc
 docker build -t systemc .
 ```
 
-To test the examples, build and run the respective docker containers in its folders.
+Testing the examples: Build and run the respective docker containers in its folders.
